@@ -22,7 +22,7 @@ module.exports = function (grunt) {
         PATTERN_PATH = grunt.config.get("pattern_lab_json.default_options.pattern_path");
 
     grunt.registerMultiTask('pattern_lab_json', 'create pattern lab atomic design json automatically', function () {
-        var myDirs = grunt.config.get("pattern_lab_json.default_options.my_dirs");
+        var myDirs = grunt.config.get("pattern_lab_json.default_options.pattern_dirs");
         myDirs.forEach(function (value, index) {
             grunt.file.recurse(value, function callback(abspath, rootdir, subdir, filename) {
                 if (filename.endsWith(PATTERN_EXTENSION)) {
