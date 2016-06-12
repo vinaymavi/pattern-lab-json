@@ -32,9 +32,9 @@ module.exports = function (grunt) {
                     console.log(includeStr);
                     var sectionArr = includeStr.match(REG_EXP_SECTION);
                     if (sectionArr !== null) {
-                    var json = createJson(sectionArr);
+                        var json = createJson(abspath, sectionArr);
                         console.log(json);
-                        writeFile(abspath,json);
+                        writeJSON(abspath, json);
                     }
                 }
             });
@@ -114,12 +114,12 @@ module.exports = function (grunt) {
      * @params sectionArr {Array}
      * @return {String} stringify javascript object.
      */
-    function createJson(sectionArr) {
+    function createJson(abspath, sectionArr) {
         var currentSection,
             sectionStr,
             currentPath = [],
             sectionStrArr,
-            jsonObject = {};
+            jsonObject = readJSON(abspath);
         for (var i = 0; i < sectionArr.length; i++) {
             currentSection = sectionArr[i];
 
@@ -221,8 +221,19 @@ module.exports = function (grunt) {
             currentLocPointer[name] = name;
         }
     }
-    function writeFile(absPath,content){
-        var filePath = absPath.replace(PATTERN_EXTENSION,JSON_EXTENSION);
-        grunt.file.write(filePath,content);
+
+    function writeJSON(absPath, content) {
+        var filePath = absPath.replace(PATTERN_EXTENSION, JSON_EXTENSION);
+        grunt.file.write(filePath, content);
+    }
+
+    function readJSON(absPath) {
+        var filePath = absPath.replace(PATTERN_EXTENSION, JSON_EXTENSION);
+        if(grunt.file.exists(filePath)){
+            var json = grunt.file.readJSON(filePath);
+            return json;
+        }else{
+            return {};
+        }
     }
 };
