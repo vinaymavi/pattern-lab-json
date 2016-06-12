@@ -1,7 +1,7 @@
 {
   "name": "grunt-pattern-lab-json",
   "description": "create pattern lab atomic design json automatically",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "homepage": "https://github.com/vinaymavi/pattern-lab-json",
   "author": {
     "name": "vinaymavi",

@@ -37,14 +37,14 @@ grunt.initConfig({
 
 #### default_options.pattern_dirs
 Type: `Array`
-Default value: `',  '`
+
 
 A list of patters directory to crate JSON.
 
 #### default_options.pattern_path
 Type: `String`
 
-String path of patterns.
+Path of patterns directory.
 
 ### Usage Examples
 
@@ -61,6 +61,8 @@ grunt.initConfig({
   },
 });
 ```
+
+
 
 ## Release History
 _(Nothing yet)_
