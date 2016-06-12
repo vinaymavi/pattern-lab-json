@@ -37,20 +37,19 @@ grunt.initConfig({
 
 #### default_options.pattern_dirs
 Type: `Array`
-Default value: `',  '`
+
 
 A list of patters directory to crate JSON.
 
 #### default_options.pattern_path
 Type: `String`
 
-String path of patterns.
+Path of patterns directory.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
+#### Need to configure before run.
+ 
 ```js
 grunt.initConfig({
   pattern_lab_json: {
@@ -62,5 +61,6 @@ grunt.initConfig({
 });
 ```
 
-## Release History
-_(Nothing yet)_
+
+
+
