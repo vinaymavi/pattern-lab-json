@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         // Configuration to be run (and then tested).
         pattern_lab_json: {
             default_options: {
-                my_dirs: ['test/molecules'],
+                my_dirs: ['test/atoms','test/molecules','test/organisms','test/templates','test/pages'],
                 "pattern_path": "test/"
             }
         },

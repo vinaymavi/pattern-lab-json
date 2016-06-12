@@ -15,6 +15,7 @@ module.exports = function (grunt) {
         REG_EXP_TYPE_START_OBJ = /{{[#^]+(.*?)}}/g,
         REG_EXP_TYPE_END_OBJ = /{{\/(.*?)}}/g,
         PATTERN_EXTENSION = ".mustache",
+        JSON_EXTENSION = ".json",
         TYPE_KEY = "KEY",
         TYPE_START_OBJ = "START_OBJ",
         TYPE_END_OBJ = "END_OBJ",
@@ -31,7 +32,9 @@ module.exports = function (grunt) {
                     console.log(includeStr);
                     var sectionArr = includeStr.match(REG_EXP_SECTION);
                     if (sectionArr !== null) {
-                        console.log(createJson(sectionArr));
+                    var json = createJson(sectionArr);
+                        console.log(json);
+                        writeFile(abspath,json);
                     }
                 }
             });
@@ -218,5 +221,8 @@ module.exports = function (grunt) {
             currentLocPointer[name] = name;
         }
     }
-
+    function writeFile(absPath,content){
+        var filePath = absPath.replace(PATTERN_EXTENSION,JSON_EXTENSION);
+        grunt.file.write(filePath,content);
+    }
 };
